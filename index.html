@@ -3,70 +3,22 @@
 	<head>
 		<meta charset="utf-8">
 		<title>HERE FOR A REASON</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
 		<script type="text/javascript" src="jscolor.min.js"></script>
 		<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
 		<script type="text/javascript" src="jquery.svg.min.js"></script>
-		<script>
-			$(function() {
-				$("#container").svg({loadURL: "logo.svg"})
-				$("#swap-button").click(function() {
-					var hereFor = $("#here-for-jscolor").val()
-					var aReason = $("#a-reason-jscolor").val()
-					var hereForOutline = $("#here-for-outline-jscolor").val()
-					var aReasonOutline = $("#a-reason-outline-jscolor").val()
-					$("#here-for-jscolor").val(aReason)
-					$("#a-reason-jscolor").val(hereFor)
-					$("#here-for-outline-jscolor").val(aReasonOutline)
-					$("#a-reason-outline-jscolor").val(hereForOutline)
-					setHereForColor(aReason)
-					setAReasonColor(hereFor)
-					setHereForOutlineColor(aReasonOutline)
-					setAReasonOutlineColor(hereForOutline)
-				})
-			})
-
-			function setBackgroundColor(picker) { setColor(picker, "background") }
-			function setHereForColor(picker) { setColor(picker, "here-for") }
-			function setAReasonColor(picker) { setColor(picker, "a-reason") }
-			function setHereForOutlineColor(picker) { setColor(picker, "here-for-outline") }
-			function setAReasonOutlineColor(picker) { setColor(picker, "a-reason-outline") }
-
-			function setColor(picker, id) {
-				var svg = $("#container").svg("get");
-				$("#" + id, svg.root()).attr("fill", "#" + picker.toString())
-			}
-		</script>
-		<style>
-			body {
-				margin: 0;
-				padding: 0;
-				font-family: "Helvetica";
-				text-align: center;
-			}
-
-			#container
-			{
-				width: 100%;
-			}
-
-			.jscolor {
-				width: 75px;
-				border: 1px solid black;
-				border-radius: 2px;
-				text-align: center;
-			}
-		</style>
+		<script type="text/javascript" src="script.js"></script>
 	</head>
 	<body>
 		<div id="container"></div>
-		<label for="background-jscolor">BG:</label>
-		<input id="background-jscolor" class="jscolor {onFineChange:'setBackgroundColor(this)'}" value="7F7F7F">
-		<label for="here-for-jscolor">Top:</label>
-		<input id="here-for-jscolor" class="jscolor {onFineChange:'setHereForColor(this)'}" value="51EA11">
-		<input id="here-for-outline-jscolor" class="jscolor {onFineChange:'setHereForOutlineColor(this)'}" value="000000">
-		<label for="a-reason-jscolor">Bottom:</label>
-		<input id="a-reason-jscolor" class="jscolor {onFineChange:'setAReasonColor(this)'}" value="9500FF">
-		<input id="a-reason-outline-jscolor" class="jscolor {onFineChange:'setAReasonOutlineColor(this)'}" value="000000">
+		<label for="background-picker">BG:</label>
+		<input id="background-picker" class="jscolor {onFineChange:'setBackgroundColor(this)'}" value="7F7F7F">
+		<label for="here-for-picker">Top:</label>
+		<input id="here-for-picker" class="jscolor {onFineChange:'setHereForColor(this)'}" value="51EA11">
+		<input id="here-for-outline-picker" class="jscolor {onFineChange:'setHereForOutlineColor(this)'}" value="000000">
+		<label for="a-reason-picker">Bottom:</label>
+		<input id="a-reason-picker" class="jscolor {onFineChange:'setAReasonColor(this)'}" value="9500FF">
+		<input id="a-reason-outline-picker" class="jscolor {onFineChange:'setAReasonOutlineColor(this)'}" value="000000">
 		<button id="swap-button">Swap</button>
 	</body>
 </html>
